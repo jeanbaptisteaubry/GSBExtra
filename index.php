@@ -3,7 +3,7 @@
 // Sous WAMP
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=gsb;charset=utf8', 'root', '');
 
-echo "<H1>Logiciel Intralab</H1>";
+echo "<H1>Logiciel GSB PRO</H1>";
 
 if(isset($_REQUEST["etat"])) {
     $etat = (int) $_REQUEST["etat"];
@@ -36,7 +36,7 @@ switch($etat)
 
 function AjouterValeur($bdd, $valeur)
 {
-    $req = $bdd->prepare('INSERT INTO table_intra( value) VALUES( :value)');
+    $req = $bdd->prepare('INSERT INTO table_pro( value) VALUES( :value)');
     $req->execute(array(
 	    'value' => $valeur
 	));
@@ -66,7 +66,7 @@ function AfficherAjouterLigne(){
 function AfficherListe($bdd)
 {
 
-    $reponse = $bdd->query('SELECT * FROM table_intra');
+    $reponse = $bdd->query('SELECT * FROM table_pro');
     $table = $reponse->fetchAll();
 // On affiche chaque entrée une à une
     echo "<table>
